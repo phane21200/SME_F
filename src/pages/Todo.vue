@@ -24,7 +24,7 @@
     </q-list>
     <div v-if="!tasks.length" class="no-tasks absolute-center">
       <q-icon name="check" size="100px" color="primary"></q-icon>
-      <div class="text-h5 text-primary text-center">Aucun élément</div>
+      <div class="text-h5 text-primary text-center">Aucun élément !!!</div>
     </div>
   </q-page>
 </template>
