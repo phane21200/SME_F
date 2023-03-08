@@ -1,9 +1,10 @@
 <template>
   <q-page class="bg-grey-3 column">
     <div class="row q-pa-sm bg-primary">
-      <q-input class="Col" square filled bg-color="White" v-model="text" label="Ajout d'une tache" dense>
+      <q-input v-model="newTask" @keyup.enter="addTask" class="col" square filled bg-color="white"
+        placeholder="Ajout d'une tache" dense>
         <template v-slot:append>
-          <q-btn round dense flat icon="add" />
+          <q-btn @click="addTask" round dense flat icon="add" />
         </template>
       </q-input>
     </div>
@@ -21,6 +22,9 @@
         </q-item-section>
       </q-item>
     </q-list>
+    <div class="no-tasks abolute-center">
+      <div class="text-h5 text-primary text-center"></div>
+    </div>
   </q-page>
 </template>
 
@@ -32,19 +36,20 @@ export default defineComponent({
 
   data() {
     return {
+      newTask: '',
       tasks: [
-        {
-          title: 'Choix 1',
-          done: false
-        },
-        {
-          title: 'Choix 2',
-          done: false
-        },
-        {
-          title: 'Choix 3',
-          done: false
-        }
+        // {
+        //   title: 'Choix 1',
+        //   done: false
+        // },
+        // {
+        //   title: 'Choix 2',
+        //   done: false
+        // },
+        // {
+        //   title: 'Choix 3',
+        //   done: false
+        // }
       ]
 
     }
@@ -62,6 +67,13 @@ export default defineComponent({
         this.$q.notify('Ligne supprimé')
 
       })
+    },
+    addTask() {
+      console.log('addTask')
+      this.tasks.push({
+        title: this.newTask, done: false
+      })
+      this.newTask = ''
     }
   }
 })
