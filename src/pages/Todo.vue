@@ -1,5 +1,12 @@
 <template>
   <q-page class="bg-grey-3 column">
+    <div class="row q-pa-sm bg-primary">
+      <q-input class="Col" square filled bg-color="White" v-model="text" label="Ajout d'une tache" dense>
+        <template v-slot:append>
+          <q-btn round dense flat icon="add" />
+        </template>
+      </q-input>
+    </div>
     <q-list class="bp-white" separator bordered>
       <q-item v-for="(task, index) in tasks" :key="task.title" @click="task.done != task.done"
         :class="{ 'done bg-blue-1': task.done }" clickable v-ripple>
