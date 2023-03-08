@@ -22,8 +22,9 @@
         </q-item-section>
       </q-item>
     </q-list>
-    <div class="no-tasks abolute-center">
-      <div class="text-h5 text-primary text-center"></div>
+    <div v-if="!tasks.length" class="no-tasks absolute-center">
+      <q-icon name="check" size="100px" color="primary"></q-icon>
+      <div class="text-h5 text-primary text-center">Aucun élément</div>
     </div>
   </q-page>
 </template>
@@ -85,5 +86,9 @@ export default defineComponent({
     text-decoration: line-through;
     color: #26A69A;
   }
+}
+
+.no-tasks {
+  opacity: 0.5;
 }
 </style>
