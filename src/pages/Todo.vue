@@ -31,7 +31,6 @@
 
 <script>
 import { defineComponent } from 'vue'
-import XLSX from 'xlsx';
 
 export default defineComponent({
   name: 'A_Faire',
@@ -76,13 +75,7 @@ export default defineComponent({
         title: this.newTask, done: false
       })
       this.newTask = ''
-    },
-    ReadExcel() {
-      console.log('Start read Excel')
-      const workbook = XLSX.readFile('/path/to/file.xlsx');
-      console.log('addTask')
     }
-
   }
 })
 </script>
