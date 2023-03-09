@@ -24,13 +24,14 @@
     </q-list>
     <div v-if="!tasks.length" class="no-tasks absolute-center">
       <q-icon name="check" size="100px" color="primary"></q-icon>
-      <div class="text-h5 text-primary text-center">- Aucun élément -</div>
+      <div class="text-h5 text-primary text-center">- Vide -</div>
     </div>
   </q-page>
 </template>
 
 <script>
 import { defineComponent } from 'vue'
+import XLSX from 'xlsx';
 
 export default defineComponent({
   name: 'A_Faire',
@@ -75,7 +76,13 @@ export default defineComponent({
         title: this.newTask, done: false
       })
       this.newTask = ''
+    },
+    ReadExcel() {
+      console.log('Start read Excel')
+      const workbook = XLSX.readFile('/path/to/file.xlsx');
+      console.log('addTask')
     }
+
   }
 })
 </script>
